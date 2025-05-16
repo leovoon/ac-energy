@@ -7,58 +7,60 @@ import Login from '@/views/Login.vue'
 import { authToken, currentUser } from '@/lib/api'
 import { UserRole } from '@/types'
 
+export const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta: {
+      title: 'Login',
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/',
+    name: 'dashboard',
+    component: Dashboard,
+    meta: {
+      title: 'Dashboard',
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/analytics',
+    name: 'analytics',
+    component: Analytics,
+    meta: {
+      title: 'Usage Analytics',
+      requiresAuth: true,
+      roles: [UserRole.Parent, UserRole.Child]
+    }
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings,
+    meta: {
+      title: 'Settings',
+      requiresAuth: true,
+      roles: [UserRole.Admin, UserRole.Parent] // Added roles
+    }
+  },
+  {
+    path: '/device/:id',
+    name: 'device-details',
+    component: DeviceDetails,
+    props: true,
+    meta: {
+      title: 'Device Details',
+      requiresAuth: true
+    }
+  }
+]
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/login',
-      name: 'login',
-      component: Login,
-      meta: {
-        title: 'Login',
-        requiresAuth: false
-      }
-    },
-    {
-      path: '/',
-      name: 'dashboard',
-      component: Dashboard,
-      meta: {
-        title: 'Dashboard',
-        requiresAuth: true,
-      }
-    },
-    {
-      path: '/analytics',
-      name: 'analytics',
-      component: Analytics,
-      meta: {
-        title: 'Usage Analytics',
-        requiresAuth: true,
-        roles: [UserRole.Parent, UserRole.Child]
-      }
-    },
-    {
-      path: '/settings',
-      name: 'settings',
-      component: Settings,
-      meta: {
-        title: 'Settings',
-        requiresAuth: true,
-        roles: [UserRole.Admin, UserRole.Parent] // Added roles
-      }
-    },
-    {
-      path: '/device/:id',
-      name: 'device-details',
-      component: DeviceDetails,
-      props: true,
-      meta: {
-        title: 'Device Details',
-        requiresAuth: true
-      }
-    }
-  ]
+  routes
 })
 
 // Navigation guard
