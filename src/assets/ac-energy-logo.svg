@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- AC unit shape -->
+  <rect x="50" y="60" width="100" height="80" rx="8" stroke="currentColor" stroke-width="6" class="text-primary" />
+  
+  <!-- Air waves -->
+  <path d="M70 90 Q 100 70, 130 90" stroke="currentColor" stroke-width="4" class="text-primary" fill="none" />
+  <path d="M70 110 Q 100 90, 130 110" stroke="currentColor" stroke-width="4" class="text-primary" fill="none" />
+  <path d="M70 130 Q 100 110, 130 130" stroke="currentColor" stroke-width="4" class="text-primary" fill="none" />
+  
+  <!-- Energy bolt -->
+  <path d="M160 80 L 140 110 L 155 115 L 130 150 L 145 120 L 130 115 L 150 80 Z" fill="currentColor" class="text-primary" />
+</svg>

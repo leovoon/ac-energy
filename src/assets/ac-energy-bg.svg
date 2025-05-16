@@ -1,0 +1,37 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="400" cy="400" r="350" stroke="currentColor" stroke-opacity="0.05" stroke-width="50" />
+  <circle cx="400" cy="400" r="250" stroke="currentColor" stroke-opacity="0.05" stroke-width="40" />
+  <circle cx="400" cy="400" r="150" stroke="currentColor" stroke-opacity="0.05" stroke-width="30" />
+  
+  <!-- AC Units Icons -->
+  <g opacity="0.08" stroke="currentColor" stroke-width="3">
+    <!-- AC Unit 1 -->
+    <rect x="100" y="150" width="80" height="60" rx="4" />
+    <line x1="110" y1="170" x2="170" y2="170" />
+    <line x1="110" y1="180" x2="170" y2="180" />
+    <line x1="110" y1="190" x2="170" y2="190" />
+    
+    <!-- AC Unit 2 -->
+    <rect x="620" y="250" width="80" height="60" rx="4" />
+    <line x1="630" y1="270" x2="690" y2="270" />
+    <line x1="630" y1="280" x2="690" y2="280" />
+    <line x1="630" y1="290" x2="690" y2="290" />
+    
+    <!-- AC Unit 3 -->
+    <rect x="200" y="580" width="80" height="60" rx="4" />
+    <line x1="210" y1="600" x2="270" y2="600" />
+    <line x1="210" y1="610" x2="270" y2="610" />
+    <line x1="210" y1="620" x2="270" y2="620" />
+    
+    <!-- AC Unit 4 -->
+    <rect x="560" y="520" width="80" height="60" rx="4" />
+    <line x1="570" y1="540" x2="630" y2="540" />
+    <line x1="570" y1="550" x2="630" y2="550" />
+    <line x1="570" y1="560" x2="630" y2="560" />
+  </g>
+  
+  <!-- Energy Waves -->
+  <path d="M300 400 Q 400 320, 500 400 Q 600 480, 700 400" stroke="currentColor" stroke-opacity="0.07" stroke-width="8" fill="none" />
+  <path d="M250 400 Q 400 290, 550 400 Q 700 510, 750 400" stroke="currentColor" stroke-opacity="0.05" stroke-width="6" fill="none" />
+  <path d="M350 400 Q 400 350, 450 400 Q 500 450, 550 400" stroke="currentColor" stroke-opacity="0.09" stroke-width="10" fill="none" />
+</svg>
