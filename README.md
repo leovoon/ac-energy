@@ -32,3 +32,24 @@ bun run build
 # Preview production build
 bun run preview
 ```
+
+## Testing
+### Cypress
+The project uses Cypress for both component and E2E testing.
+
+```bash
+# Run component tests
+bun run cy:run-unit
+
+# Open component test runner
+bun run cy:open-unit
+
+# Run E2E tests
+bun run cy:run-e2e
+
+# Open E2E test runner
+bun run cy:open-e2e
+
+# Run E2E tests with server
+bun run cy:e2e
+```
