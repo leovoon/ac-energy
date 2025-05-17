@@ -46,6 +46,7 @@ jobs:
         CI: 1
       # print Cypress and OS info
       run: |
+        npm install --legacy-peer-deps
         npm ci
         npx cypress verify
         npx cypress info
