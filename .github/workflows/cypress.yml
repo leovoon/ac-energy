@@ -57,8 +57,8 @@ jobs:
 
     # Starts local server, then runs Cypress tests and records results on Cypress Cloud
     - name: Cypress tests
-      run: npm run test:ci:record
-      env:
+      run: npm run ci:run-e2e
+      env:  
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
     # Save screenshots as test artifacts
