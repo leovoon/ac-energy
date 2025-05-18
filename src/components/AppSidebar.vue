@@ -134,12 +134,14 @@ const handleLogout = () => {
 <template>
   <Sidebar collapsible="offcanvas" class="h-screen border-r">
     <SidebarHeader>
-      <div class="p-4">
-        <h1 class="text-xl font-bold flex justify-between ">AC Energy
-          <DarkMode />
-        </h1>
-        <p class="text-xs text-muted-foreground">Monitor & Control</p>
-
+      <div class="p-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-lg font-bold">AC Energy</h1>
+            <p class="text-xs text-muted-foreground">Monitor & Control</p>
+          </div>
+          <DarkMode class="ml-2" />
+        </div>
       </div>
     </SidebarHeader>
 

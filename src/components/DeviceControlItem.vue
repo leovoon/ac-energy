@@ -102,65 +102,75 @@ const remainingTimeFormatted = computed(() => {
 </script>
 
 <template>
-  <div class="border rounded-lg p-4 space-y-3 mb-4">
-    <div class="flex justify-between items-center">
+  <div class="border rounded-lg p-3 space-y-3 mb-4 hover:border-primary/30 transition-colors">
+    <div class="flex justify-between items-start">
       <div>
-        <h4 class="font-medium">{{ device.name }}</h4>
+        <h4 class="font-semibold">{{ device.name }}</h4>
         <p class="text-sm text-muted-foreground">{{ device.location }}</p>
       </div>
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center space-x-1 bg-muted/50 px-2 py-1 rounded-md">
         <div :class="`w-2 h-2 rounded-full ${device.isOn ? 'bg-green-500' : 'bg-gray-300'}`"></div>
-        <span class="text-xs">{{ device.isOn ? 'On' : 'Off' }}</span>
+        <span class="text-xs font-medium">{{ device.isOn ? 'On' : 'Off' }}</span>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div class="space-y-2 flex flex-col justify-between ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="space-y-3 flex flex-col justify-between ">
         <div class="flex justify-between items-center">
-          <label class="text-sm">Parent Control</label>
+          <label class="text-sm font-medium">Parent Control</label>
           <Switch
             :checked="parentControlled"
             :model-value="parentControlled"
             @update:model-value="toggleParentControl"
             :disabled="!userStore.hasPermission([UserRole.Admin, UserRole.Parent])"
+            class="data-[state=checked]:bg-primary"
           />
         </div>
 
         <div class="flex justify-between items-center">
-          <label class="text-sm">Force Power</label>
+          <label class="text-sm font-medium">Force Power</label>
           <Button
             size="sm"
             :variant="isOn ? 'destructive' : 'default'"
             :class="isOn ? 'bg-destructive hover:bg-destructive/90' : 'bg-primary hover:bg-primary/90'"
             @click="forceToggleDevice"
-            :disabled="!hasControlPermission" 
+            :disabled="!hasControlPermission"
+            class="w-24 text-center"
           >
             {{ isOn ? 'Turn Off' : 'Turn On' }}
           </Button>
         </div>
       </div>
 
-      <div class="space-y-2">
+      <div class="space-y-3">
         <div class="flex justify-between items-center">
-          <label class="text-sm">Daily Limit (min)</label>
-          <Input
-            type="number"
-            v-model="dailyLimit"
-            class="w-20 h-8"
-            @blur="updateDailyLimit"
-            :disabled="!userStore.hasPermission([UserRole.Admin, UserRole.Parent])"
-          />
+          <label class="text-sm font-medium">Daily Limit</label>
+          <div class="flex items-center gap-1">
+            <Input
+              type="number"
+              v-model="dailyLimit"
+              class="w-16 h-8 text-right"
+              @blur="updateDailyLimit"
+              :disabled="!userStore.hasPermission([UserRole.Admin, UserRole.Parent])"
+            />
+            <span class="text-xs text-muted-foreground">min</span>
+          </div>
         </div>
 
         <div class="space-y-1">
           <div class="flex justify-between text-xs">
-            <span>Remaining: {{ remainingTimeFormatted }}</span>
-            <span>{{ remainingPercentage }}%</span>
+            <span class="text-muted-foreground">Remaining: <span class="font-medium text-foreground">{{ remainingTimeFormatted }}</span></span>
+            <span class="font-medium">{{ remainingPercentage }}%</span>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="w-full bg-muted rounded-full h-2.5">
             <div
-              class="bg-primary h-2.5 rounded-full"
+              class="bg-primary h-2.5 rounded-full transition-all duration-300"
               :style="{ width: `${remainingPercentage}%` }"
+              :class="{
+                'bg-green-500': remainingPercentage > 60,
+                'bg-amber-500': remainingPercentage <= 60 && remainingPercentage > 20,
+                'bg-destructive': remainingPercentage <= 20
+              }"
             ></div>
           </div>
         </div>

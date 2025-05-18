@@ -16,7 +16,7 @@ const devices = computed(() => deviceStore.devices);
 
 <template>
   <div v-if="showPanel" class="mt-6">
-    <Card class="w-full">
+    <Card class="w-full bg-card/50 border-primary/10">
       <CardHeader>
         <CardTitle>Parent Control Panel</CardTitle>
         <CardDescription>Manage and control all AC units in your home</CardDescription>

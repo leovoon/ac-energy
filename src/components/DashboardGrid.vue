@@ -18,7 +18,7 @@ const openDeviceDrawer = (deviceId: string) => {
 </script>
 
 <template>
-  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4">
+  <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3">
     <div v-for="device in deviceStore.devices" :key="device.id">
       <ACUnitCard 
         :device="device" 

@@ -35,8 +35,8 @@ const usagePercentage = computed(() => {
 
 <template>
   <Card class="h-full cursor-pointer hover:shadow-md transition-shadow" @click="$emit('view-details', String(device.id))" tabindex="0" role="button">
-    <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle class="text-sm font-medium">{{ device.name }}</CardTitle>
+    <CardHeader class="flex flex-row items-start justify-between space-y-0 pb-2">
+      <CardTitle class="text-base font-semibold">{{ device.name }}</CardTitle>
       <div class="flex flex-col items-end space-y-2">
         <Badge v-if="device.parentControlled" variant="secondary" class="text-xs">
           Parent Controlled
@@ -53,7 +53,7 @@ const usagePercentage = computed(() => {
        
       </div>
       
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-3 mt-2">
         <div class="text-center p-2 bg-muted rounded-md">
           <p class="text-xs text-muted-foreground mb-1">Temperature</p>
           <p class="text-lg font-semibold">{{ device.temperature }}°C</p>
@@ -65,7 +65,7 @@ const usagePercentage = computed(() => {
         </div>
       </div>
     </CardContent>
-    <CardFooter class="pt-0">
+    <CardFooter class="pt-2">
       <Button variant="ghost" class="w-full text-primary" size="sm">
         View Details
       </Button>

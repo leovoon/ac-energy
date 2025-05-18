@@ -47,25 +47,19 @@ onMounted(async () => {
             <!-- Mobile sidebar trigger - this will only show on mobile screens -->
             <div class="flex items-center gap-2">
               <SidebarTrigger class="md:hidden" />
-              <h1 class="text-xl font-bold">{{ $route.meta.title || 'AC Energy Monitor' }}</h1>
+              <h1 class="text-lg font-bold truncate max-w-[160px]">{{ $route.meta.title || 'AC Energy Monitor' }}</h1>
             </div>
 
-            <div v-if="userStore.currentUser" class="flex items-center gap-3">
-              <div class="flex items-center gap-2">
-                <span class="text-sm text-muted-foreground">{{ userStore.currentUser.name }}</span>
-                <div class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                  {{ userStore.currentUser.role }}
-                </div>
-              </div>
-              <Button variant="outline" size="sm" @click="handleLogout" class="flex items-center gap-1">
-                <span>Logout</span>
+            <div v-if="userStore.currentUser" class="flex items-center">
+              <Button variant="ghost" size="sm" @click="handleLogout" class="flex items-center gap-1 p-1">
+                <span class="hidden md:inline">Logout</span>
                 <span class="text-sm">🚪</span>
               </Button>
             </div>
           </div>
         </header>
 
-        <main class="flex-1 p-6 overflow-auto">
+        <main class="flex-1 p-4 overflow-auto max-w-full">
           <RouterView />
         </main>
       </div>
